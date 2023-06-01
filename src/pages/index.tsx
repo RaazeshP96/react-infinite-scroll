@@ -26,7 +26,12 @@ const ItemList: React.FC = () => {
   const observerElem = useRef(null);
 
   /**
-   *This
+   *
+   * this function retrieves data
+   * from an API endpoint using pagination
+   * parameters (offset and limit)
+   * and assigns a nextPage value based on
+   * the length of the data received
    *
    */
   const fetchItems = async (page: number) => {
@@ -40,8 +45,10 @@ const ItemList: React.FC = () => {
   };
 
   /**
-   *
    *fetching data using React-Query's useInfiniteQuery hook
+   *this code snippet sets up the infrastructure for paginated
+    data fetching using useInfiniteQuery
+   *
    */
   const { data, fetchNextPage, isFetchingNextPage, hasNextPage } =
     useInfiniteQuery(
@@ -62,7 +69,9 @@ const ItemList: React.FC = () => {
 
   /**
    *
-   * This function is used to
+   * This function is trigger fetchNextPage
+   * when observerElem isvisible in the viewport
+   *
    */
   const handleObserver = useCallback(
     (entries: any) => {
@@ -73,6 +82,14 @@ const ItemList: React.FC = () => {
     },
     [fetchNextPage]
   );
+
+  /**
+   *
+   * This function is used to detect when a specific element
+   * (in our case div with ref observerElem )
+   * becomes visible in the viewport
+   *
+   */
 
   useEffect(() => {
     const element = observerElem.current;
