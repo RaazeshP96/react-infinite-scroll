@@ -133,9 +133,7 @@ const ItemList: React.FC = () => {
                         style={{ width: "35rem" }}
                         cover={
                           <Image
-                            src={
-                              "https://www.shutterstock.com/image-illustration/smart-city-nft-virtual-real-600w-2154735667.jpg"
-                            }
+                            src={data.images[0]}
                             width={200}
                             height={200}
                             style={{ objectFit: "contain", padding: "2rem" }}
